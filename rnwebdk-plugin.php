@@ -51,3 +51,40 @@ if ( ! defined( 'ABSPATH' )) {
 // 	echo 'You dont have permission to access this file';
 // 	exit;
 // }
+
+
+class RnwebdkPlugin
+{
+	public function activate()
+	{
+		// generated a CPT
+		// flush rewite rules
+	}
+
+	public function deactivate()
+	{
+		//flush rewrite rules
+	}
+
+	public function uninstall()
+	{
+		// delete CPT
+		// delete all the plguin data from the DB
+	}
+}
+
+if (function_exists( 'RnwebdkPlugin' )) {
+	$rnwebdkPlugin = new RnwebdkPlugin();
+}
+
+
+//Activate
+//This function is similar to add_action( 'init', 'function_name' );
+register_activation_hook( __FILE__ , array( $rnwebdkPlugin 'activate' ) );
+
+//deactivate
+register_deactivation_hook( __FILE__ , array( $rnwebdkPlugin 'deactivate' ) );
+
+
+// uninstall
+// We'll get to that later.
