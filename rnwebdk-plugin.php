@@ -34,3 +34,20 @@ Foundation, Inc., S1 Franklin street, Fifth Floor, Boston, MA 02110-1301, USA.
 
 Copyright 2005-2015 Automattic, Inc.
  */
+
+// the ABSPATH is the absolute path that is defined by wordpress when initialized.
+// So this is used for security matters, if this constant is not set, then someone is trying to
+// look at this file without permission. so if so, kill the script and dont execute more code
+if ( ! defined( 'ABSPATH' )) {
+	die;
+}
+
+// another shorthand for the above
+// defined( 'ABSPATH' ) or die('You dont have permission to access this file'); 
+
+
+// a third way is to check if the add_action function is available
+// if ( ! function_exists( 'add_action' )) {
+// 	echo 'You dont have permission to access this file';
+// 	exit;
+// }
