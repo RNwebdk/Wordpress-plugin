@@ -55,21 +55,35 @@ if ( ! defined( 'ABSPATH' )) {
 
 class RnwebdkPlugin
 {
+
+	function __construct()
+	{
+		add_action('init', array( $this, 'custom_post_type') );
+	}
+
 	public function activate()
 	{
 		// generated a CPT
+		$this->custom_post_type();
 		// flush rewite rules
+		flush_rewrite_rules();
 	}
 
 	public function deactivate()
 	{
 		//flush rewrite rules
+		flush_rewrite_rules();
 	}
 
 	public function uninstall()
 	{
 		// delete CPT
 		// delete all the plguin data from the DB
+	}
+
+	public function custom_post_type()
+	{
+		register_post_type( 'book', ['public' => true, 'label' => 'Books']);
 	}
 }
 
